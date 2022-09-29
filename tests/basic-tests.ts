@@ -16,7 +16,7 @@ describe("Basic Tests", () => {
       const cfg = await this.ava.getAppConfiguration();
       expect(cfg).to.be.a('object');
       expect(cfg).to.have.property("version", "0.6.0");
-      expect(cfg).to.have.property("name", "Avalanche");
+      expect(cfg).to.have.property("name", "Metal");
     });
     it('returns the expected wallet ID', async function () {
       const id = await this.ava.getWalletId();
