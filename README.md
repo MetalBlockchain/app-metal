@@ -1,8 +1,8 @@
-# Ledger Avalanche app
+# Ledger Metal app
 
 ## Overview
 
-This repository contains the Avalanche BOLOS application for the Ledger Nano S and Ledger Nano X and tools for testing the application.
+This repository contains the Metal BOLOS application for the Ledger Nano S and Ledger Nano X and tools for testing the application.
 
 Most instructions assume you have the [Nix](https://nixos.org/nix/) Package Manager, which you can install on any Linux distribution or MacOS.
 

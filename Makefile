@@ -3,7 +3,7 @@ $(error Environment variable BOLOS_SDK is not set)
 endif
 include $(BOLOS_SDK)/Makefile.defines
 
-APPNAME = "Avalanche"
+APPNAME = "Metal"
 
 APP_LOAD_PARAMS= --appFlags 0 --curve secp256k1 --path "44'/9000'" --path "44'/60'" $(COMMON_LOAD_PARAMS)
 

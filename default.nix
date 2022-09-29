@@ -78,7 +78,7 @@ let
   build = bolos:
     let
       app = ledgerPkgs.lldClangStdenv.mkDerivation {
-        name = "ledger-app-avalanche-nano-${bolos.name}";
+        name = "ledger-app-metal-nano-${bolos.name}";
         inherit src;
         postConfigure = ''
           PATH="$BOLOS_ENV/clang-arm-fropi/bin:$PATH"
@@ -160,23 +160,23 @@ let
       inherit app;
 
       release = rec {
-        app = mkRelease "avalanche" "Avalanche" ledgerApp;
-        all = pkgs.runCommand "ledger-app-avalanche-${bolos.name}${if debug then "-debug" else ""}.tar.gz" {
+        app = mkRelease "metal" "Metal" ledgerApp;
+        all = pkgs.runCommand "ledger-app-metal-${bolos.name}${if debug then "-debug" else ""}.tar.gz" {
           nativeBuildInputs = [ (pkgs.python3.withPackages (ps: [ps.pillow ps.ledgerblue])) ];
         } ''
-          mkdir ledger-app-avalanche-${bolos.name}
+          mkdir ledger-app-metal-${bolos.name}
 
-          cp -r ${app} ledger-app-avalanche-${bolos.name}/app
+          cp -r ${app} ledger-app-metal-${bolos.name}/app
 
           source ${app}/app.manifest
 
           python -m ledgerblue.hashApp \
             --hex "${app}/app.hex" \
-            --targetVersion "" > ledger-app-avalanche-${bolos.name}/code-identifier.txt
+            --targetVersion "" > ledger-app-metal-${bolos.name}/code-identifier.txt
 
-          install -m a=rx ${./nix/app-installer-impl.sh} ledger-app-avalanche-${bolos.name}/install.sh
+          install -m a=rx ${./nix/app-installer-impl.sh} ledger-app-metal-${bolos.name}/install.sh
 
-          tar czf $out ledger-app-avalanche-${bolos.name}/*
+          tar czf $out ledger-app-metal-${bolos.name}/*
         '';
       };
     };
@@ -241,7 +241,7 @@ let
        installPhase = ''
         {
           echo "<html><title>Analyzer Report</title><body><h1>Clang Static Analyzer Results</h1>"
-          printf "<p>App: <code>"Avalanche"</code></p>"
+          printf "<p>App: <code>"Metal"</code></p>"
           printf "<h2>File-results:</h2>"
           for html in "$out"/report*.html ; do
             echo "<p>"

@@ -6,14 +6,14 @@
 
 typedef enum {
   NETWORK_ID_MAINNET  = 1,
-  NETWORK_ID_FUJI     = 5,
+  NETWORK_ID_TAHOE     = 5,
   NETWORK_ID_LOCAL    = 12345,
 } network_id_t;
 
 static inline network_id_t parse_network_id(uint32_t const val) {
   switch ((network_id_t)val) {
   case NETWORK_ID_MAINNET:
-  case NETWORK_ID_FUJI:
+  case NETWORK_ID_TAHOE:
   case NETWORK_ID_LOCAL:
     return (network_id_t)val;
   default: THROW(EXC_PARSE_ERROR);
