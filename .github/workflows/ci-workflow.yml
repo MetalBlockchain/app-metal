@@ -21,7 +21,7 @@ jobs:
       - name: Upload app binary
         uses: actions/upload-artifact@v2
         with:
-          name: avalanche-app-debug
+          name: metal-app-debug
           path: bin
 
   job_scan_build:
@@ -68,7 +68,7 @@ jobs:
             --form email=$EMAIL \
             --form file=@cov-int.tar.gz \
             --form version=master \
-            --form description="Avalanche app" \
+            --form description="Metal app" \
             https://scan.coverity.com/builds?project=LedgerHQ%2Fapp-stellar
         env:
           EMAIL: ${{ secrets.COVERITY_SCAN_EMAIL }}
