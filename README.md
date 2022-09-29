@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains the Metal BOLOS application for the Ledger Nano S and Ledger Nano X and tools for testing the application.
+This repository contains the Metal BOLOS application for the Ledger Nano S and Ledger Nano X and tools for testing the application. It is a fork of the excellent work done by Obsidian Systems for the Avalanche community.
 
 Most instructions assume you have the [Nix](https://nixos.org/nix/) Package Manager, which you can install on any Linux distribution or MacOS.
 
@@ -101,7 +101,7 @@ There are 3 ways you can install this Ledger application:
 
 ### Installing the Ledger Application from Release
 
-Please download `nano-s-release.tar.gz` from the latest release on  the [releases](https://github.com/obsidiansystems/ledger-app-avalanche/releases) page of this repo, which contains a pre-compiled app or `.hex` file ready to install on the Ledger. The following sections describe how to install it, including acquiring other tools from the Ledger project.
+Please download `nano-s-release.tar.gz` from the latest release on  the [releases](https://github.com/MetalBlockchain/ledger-app-metal/releases) page of this repo, which contains a pre-compiled app or `.hex` file ready to install on the Ledger. The following sections describe how to install it, including acquiring other tools from the Ledger project.
 
 #### Installing BOLOS Python Loader
 
@@ -169,7 +169,7 @@ Still within the virtualenv, run the `./install.sh` command included in the `nan
 ```shell
 cd ~/Downloads/
 tar xzf nano-s-release.tar.gz
-cd ledger-app-avalanche-s
+cd ledger-app-metal-s
 ./install.sh app
 ```
 
@@ -181,7 +181,7 @@ Generated random root public key : <long string of digits and letters>
 
 Look at your Ledger device's screen and verify that the digits of that key match the digits you can see on your terminal. What you see on your Ledger hardware wallet's screen should be just the beginning and ending few characters of the longer string that printed in your terminal.
 
-You will need to push confirmation buttons on your Ledger device a few times during the installation process and re-enter your PIN code near the end of the process. You should finally see the Avalanche logo appear on the screen.
+You will need to push confirmation buttons on your Ledger device a few times during the installation process and re-enter your PIN code near the end of the process. You should finally see the Metal logo appear on the screen.
 
 If you see the "Generated random root public key" message and then something that looks like this:
 
@@ -194,15 +194,15 @@ OSError: open failed
 
 the most likely cause is that your `udev` rules are not set up correctly, or you did not unplug your Ledger hardware wallet between setting up the rules and attempting to install. Please confirm the correctness of your `udev` rules.
 
-To load a new version of the Avalanche application onto the Ledger device in the future, you can run the command again, and it will automatically remove any previously-loaded version.
+To load a new version of the Metal application onto the Ledger device in the future, you can run the command again, and it will automatically remove any previously-loaded version.
 
 ### Installing the Ledger Application from Source
 
-You can install the Ledger app from source if you have Nix installed. To load the latest version of the Avalanche app:
+You can install the Ledger app from source if you have Nix installed. To load the latest version of the Metal app:
 
 ``` shell
-git clone https://github.com/obsidiansystems/ledger-app-avalanche.git
-cd ledger-app-avalanche
+git clone https://github.com/MetalBlockchain/ledger-app-metal.git
+cd ledger-app-metal
 git checkout master
 ./nix/install.sh -t s
 ```
@@ -213,7 +213,7 @@ Some notes during app installation:
 - Unsafe Manager: you will see a prompt to either allow or deny 'unsafe manager' when running `./nix/install.sh s`. 'Unsafe Manager' is any manager which is not Ledger Live.
 - Permission Denied: If you get a “permission denied” error, your computer is not detecting the Ledger device correctly. Make sure the Ledger is connected properly, that it was plugged in since updating the `udev` rules.
 
-You have to accept a few prompts on the Ledger. Then you must select and load the Avalanche app.
+You have to accept a few prompts on the Ledger. Then you must select and load the Metal app.
 
 #### Confirming the Installed Version
 
@@ -221,7 +221,7 @@ To confirm the version of the application installed on your hardware wallet, fir
 
 - connected
 - unlocked
-- has the "Avalanche" app open (shows “Use wallet to view accounts”)
+- has the "Metal" app open (shows “Use wallet to view accounts”)
 
 Then run the following:
 
