@@ -44,7 +44,7 @@ size_t handle_apdu_get_public_key_impl(bool const prompt_ext) {
     }
 
     if (p1 == 0) {
-      static const char default_hrp[] = "avax";
+      static const char default_hrp[] = "metal";
       G.hrp_len = sizeof(default_hrp) - 1;
       memcpy(G.hrp, default_hrp, G.hrp_len);
     } else {

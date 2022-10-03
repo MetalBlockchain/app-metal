@@ -252,9 +252,9 @@ size_t nano_avax_to_string(
     char dest[const], size_t const buff_size,
     uint64_t const nano_avax)
 {
-  static char const unit[] = " AVAX";
+  static char const unit[] = " METAL";
   size_t ix = subunit_to_unit_string(dest, buff_size, nano_avax, NANO_AVAX_SCALE);
-  if (ix + sizeof(unit) > buff_size) THROW_(EXC_MEMORY_ERROR, "Can't fit ' AVAX' into prompt value string");
+  if (ix + sizeof(unit) > buff_size) THROW_(EXC_MEMORY_ERROR, "Can't fit ' METAL' into prompt value string");
   memcpy(&dest[ix], unit, sizeof(unit));
   ix += sizeof(unit) - 1;
   return ix;
@@ -285,9 +285,9 @@ size_t wei_to_navax_string(
     char dest[const], size_t const buff_size,
     uint64_t const wei)
 {
-  static char const unit[] = " nAVAX";
+  static char const unit[] = " nMETAL";
   size_t ix = subunit_to_unit_string(dest, buff_size, wei, WEI_GWEI_SCALE);
-  if (ix + sizeof(unit) > buff_size) THROW_(EXC_MEMORY_ERROR, "Can't fit ' nAVAX' into prompt value string");
+  if (ix + sizeof(unit) > buff_size) THROW_(EXC_MEMORY_ERROR, "Can't fit ' nMETAL' into prompt value string");
   memcpy(&dest[ix], unit, sizeof(unit));
   ix += sizeof(unit) - 1;
   return ix;
@@ -306,16 +306,16 @@ size_t wei_to_avax_or_navax_string_256(
   readu256BE(AVAX_NAVAX_DISPLAY_THRESHOLD_BE, &AVAX_NAVAX_DISPLAY_THRESHOLD_256);
 
   if (gte256(wei, &AVAX_NAVAX_DISPLAY_THRESHOLD_256)) {
-    static char const unit[] = " AVAX";
+    static char const unit[] = " METAL";
     size_t ix = subunit_to_unit_string_256(dest, buff_size, wei, WEI_AVAX_DIGITS);
-    if (ix + sizeof(unit) > buff_size) THROW_(EXC_MEMORY_ERROR, "Can't fit ' AVAX' into prompt value string");
+    if (ix + sizeof(unit) > buff_size) THROW_(EXC_MEMORY_ERROR, "Can't fit ' METAL' into prompt value string");
     memcpy(&dest[ix], unit, sizeof(unit));
     ix += sizeof(unit) - 1;
     return ix;
   } else {
-    static char const unit[] = " nAVAX";
+    static char const unit[] = " nMETAL";
     size_t ix = subunit_to_unit_string_256(dest, buff_size, wei, WEI_NAVAX_DIGITS);
-    if (ix + sizeof(unit) > buff_size) THROW_(EXC_MEMORY_ERROR, "Can't fit ' nAVAX' into prompt value string");
+    if (ix + sizeof(unit) > buff_size) THROW_(EXC_MEMORY_ERROR, "Can't fit ' nMETAL' into prompt value string");
     memcpy(&dest[ix], unit, sizeof(unit));
     ix += sizeof(unit) - 1;
     return ix;
